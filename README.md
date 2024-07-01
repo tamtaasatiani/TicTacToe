@@ -1,4 +1,4 @@
-# tic-tac-toe
+# TicTacToe
 
 Welcome to tic-tac-toe created in C++ by Tamta Asatiani.
 
