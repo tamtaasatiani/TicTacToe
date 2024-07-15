@@ -7,7 +7,7 @@
 
 #include <iostream>
 
-#include "game.hpp"
+#include "src/game.hpp"
 
 int main() {
     

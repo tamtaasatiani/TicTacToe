@@ -7,8 +7,11 @@
 
 #pragma once
 
+#include "util.hpp"
+
 #include "board.hpp"
 #include "player.hpp"
+#include "slot.hpp"
 
 class Game {
     private:
