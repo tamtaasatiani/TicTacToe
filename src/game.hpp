@@ -29,6 +29,7 @@ class Game {
     
     public:
         Game();
+        ~Game();
         
     
         Player* changeTurn();

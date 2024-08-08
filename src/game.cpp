@@ -27,6 +27,13 @@ Game::Game()
 //    board.initSlots();
 }
 
+Game::~Game()
+{
+    delete player1;
+    delete player2;
+    delete board;
+}
+
 bool Game::isRunning()
 {
     return running;
