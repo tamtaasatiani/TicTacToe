@@ -8,23 +8,12 @@
 #include "game.hpp"
 #include <iostream>
 
-Game::Game()
+Game::Game() : player1(Player('X')), player2(Player('O')), board(new Board(7, 7))
 {
-    player1 = new Player('X');
-    player2 = new Player('O');
-    turn = player1;
+    turn = &player1;
     winner = NULL;
-    
-    board = new Board(7, 7);
+
     board -> initSlots();
-    
-//no idea why this doesn't work, or why i had to make pointers to instances:
-//    Player player1('X');
-//    Player player2('O');
-//    Player& turn = player1;
-    
-//    Board board(7, 7);
-//    board.initSlots();
 }
 
 bool Game::isRunning()
@@ -32,7 +21,7 @@ bool Game::isRunning()
     return running;
 }
 
-bool Game::win(Player* potentialWinner)
+bool Game::win(Player *potentialWinner)
 {
     int length = sizeof(winningNumbers) / sizeof(int);
     
@@ -57,12 +46,12 @@ void Game::gameOver()
 
 Player* Game::changeTurn()
 {
-    if (turn == player1)
+    if (turn == &player1)
     {
-        return player2;
+        return &player2;
     }
     
-    return player1;
+    return &player1;
 }
 
 

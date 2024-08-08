@@ -13,17 +13,19 @@
 #include "player.hpp"
 #include "slot.hpp"
 
+#include <memory>
+
 class Game {
     private:
         bool running = true;
     
         int winningNumbers[8] = {30, 238, 506, 627, 935, 1001, 1495, 7429};
-        Player* player1;
-        Player* player2;
-        Player* turn;
-        Player* winner;
+        Player player1;
+        Player player2;
+        Player *turn;
+        Player *winner;
     
-        Board* board;
+        std::unique_ptr<Board> board;
     
         std::string gameState = "start";
     
@@ -34,7 +36,7 @@ class Game {
         Player* changeTurn();
         bool isRunning();
         void gameOver();
-        bool win(Player* potentialWinner);
+        bool win(Player *player);
     
         void run();
     
